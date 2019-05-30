@@ -26,4 +26,4 @@ RUN apt-get update -y && \
     apt-get install -y ca-certificates && update-ca-certificates
 
 # Start application
-CMD ["node", "/usr/bin/rpi-notifier/bin/index.js"]
+CMD ["node", "/usr/bin/rpi-notifier/src/index.js"]
