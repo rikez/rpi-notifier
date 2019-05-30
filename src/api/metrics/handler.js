@@ -61,7 +61,7 @@ class MetricsHandler {
       return;
     }
 
-    const found = User.findOne({ deviceId: msg.deviceId });
+    const found = await User.findOne({ deviceId: msg.deviceId });
     if (!found) {
       logger.warn(msg, `An user with the deviceId ${msg.deviceId} was not found`);
       return;
