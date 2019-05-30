@@ -1,0 +1,37 @@
+{
+  "name": "rpi-notifier",
+  "version": "1.0.0",
+  "description": "Raspberry Event Notification",
+  "main": "index.js",
+  "scripts": {
+    "test": "ava -T 60s -s -v --fail-fast",
+    "start": "node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rikez/rpi-notifier.git"
+  },
+  "keywords": [
+    "Raspberry",
+    "Kafka",
+    "Notification",
+    "ELK"
+  ],
+  "author": "Enrico Alvarenga",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rikez/rpi-notifier/issues"
+  },
+  "homepage": "https://github.com/rikez/rpi-notifier#readme",
+  "dependencies": {
+    "awilix": "^4.2.2",
+    "blocked": "^1.2.1",
+    "dotenv": "^8.0.0",
+    "joi": "^14.3.1",
+    "mongoose": "^5.5.11",
+    "node-rdkafka": "^2.6.1",
+    "pino": "^5.12.6",
+    "pino-pretty": "^3.1.0",
+    "verror": "^1.10.0"
+  }
+}

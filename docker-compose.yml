@@ -1,0 +1,31 @@
+version: '3.2'
+
+services:
+  zookeeper:
+    container_name: ZOOKEEPER_RPI_NOTIFIER
+    image: confluentinc/cp-zookeeper
+    ports:
+      - "2181:2181"
+    environment:
+      - ZOOKEEPER_TICK_TIME=2000
+      - ZOOKEEPER_CLIENT_PORT=2181
+
+  kafka:
+    container_name: KAFKA_RPI_NOTIFIER
+    image: confluentinc/cp-kafka
+    ports:
+      - "9092:9092"
+    links:
+      - zookeeper
+    environment:
+      - KAFKA_DELETE_TOPIC_ENABLE=true
+      - KAFKA_LOG_RETENTION_HOURS=1
+      - KAFKA_MESSAGE_MAX_BYTES=10000000
+      - KAFKA_REPLICA_FETCH_MAX_BYTES=10000000
+      - KAFKA_GROUP_MAX_SESSION_TIMEOUT_MS=60000
+      - KAFKA_DELETE_RETENTION_MS=1000
+      - KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181
+      - KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://localhost:9092
+      - KAFKA_BROKER_ID=1
+      - ZOOKEEPER_CLIENT_PORT=2181
+      - KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR=1
